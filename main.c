@@ -6,7 +6,7 @@
 /*   By: mdogadin <mdogadin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 11:28:31 by mdogadin          #+#    #+#             */
-/*   Updated: 2023/12/19 15:08:09 by mdogadin         ###   ########.fr       */
+/*   Updated: 2023/12/21 11:50:32 by mdogadin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,12 @@ int main(int argc , char **argv)
 	fd_map = open(argv[1], O_RDONLY);
 	check_arg(&game, argc, argv);
 	map_start(&game);
-	game.score = collectible_counter(&game); // не сделал
+	game.score = collectible_on_map(&game);
 	game.row = size_row(&game, fd_x);
 	game.col = size_col(&game, fd_y);
 	fd = open(argv[1], O_RDONLY);
 	map(&game, fd);
+	all_map_checks(&game, fd_map);
+	
 
-
-	
-	
-	
 }

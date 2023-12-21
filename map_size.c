@@ -6,7 +6,7 @@
 /*   By: mdogadin <mdogadin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 12:13:18 by mdogadin          #+#    #+#             */
-/*   Updated: 2023/12/19 13:26:16 by mdogadin         ###   ########.fr       */
+/*   Updated: 2023/12/21 10:23:45 by mdogadin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	size_col(t_game *game, int fd_y)
 	return (y);
 }
 
-int size_row(t_game game, int fd_x)
+int size_row(t_game *game, int fd_x)
 {
 	char	*c;
 	int		x;
