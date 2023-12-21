@@ -6,7 +6,7 @@
 /*   By: mdogadin <mdogadin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 11:28:31 by mdogadin          #+#    #+#             */
-/*   Updated: 2023/12/21 13:47:48 by mdogadin         ###   ########.fr       */
+/*   Updated: 2023/12/21 14:32:46 by mdogadin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ int main(int argc , char **argv)
 	close(fd_y);
 	close(fd);
 	close(fd_map);
+	player_position(&game);
+	
 	
 
 }
