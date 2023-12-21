@@ -6,7 +6,7 @@
 /*   By: mdogadin <mdogadin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 11:28:31 by mdogadin          #+#    #+#             */
-/*   Updated: 2023/12/21 11:50:32 by mdogadin         ###   ########.fr       */
+/*   Updated: 2023/12/21 13:47:48 by mdogadin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,12 @@ int main(int argc , char **argv)
 	fd = open(argv[1], O_RDONLY);
 	map(&game, fd);
 	all_map_checks(&game, fd_map);
+	if (game.col = -1)
+		ft_exit("Error\n", &game);
+	close(fd_x);
+	close(fd_y);
+	close(fd);
+	close(fd_map);
 	
 
 }
