@@ -6,7 +6,7 @@
 /*   By: mdogadin <mdogadin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 12:13:18 by mdogadin          #+#    #+#             */
-/*   Updated: 2023/12/21 10:23:45 by mdogadin         ###   ########.fr       */
+/*   Updated: 2024/01/09 13:02:19 by mdogadin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 
 int	size_col(t_game *game, int fd_y)
 {
-	char *c;
-	int y;
-	int temp;
+	char	*c;
+	int		y;
+	int		temp;
 
 	(void)game;
-	y = ft_strlen(get_next_line(fd_y)) - 1;
+	c = get_next_line(fd_y);
+	y = ft_strlen(c)-1;
 	temp = y;
+	free(c);
 	if (fd_y < 0)
 		ft_exit("Error\nThe fd is empty\n", game);
 	while (1)
@@ -57,5 +59,4 @@ int size_row(t_game *game, int fd_x)
 		exit(0);
 	}
 	return (x);
-
 }

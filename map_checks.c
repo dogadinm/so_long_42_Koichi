@@ -6,7 +6,7 @@
 /*   By: mdogadin <mdogadin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 10:29:15 by mdogadin          #+#    #+#             */
-/*   Updated: 2023/12/21 11:59:53 by mdogadin         ###   ########.fr       */
+/*   Updated: 2024/01/09 14:24:18 by mdogadin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ static void	ft_wall(t_game *game)
 				ft_exit("Error\nThe map is not surrounded by walls", game);
 			y++;
 		}
+		x++;
 	}
-	x++;
 }
 
 void map_correct(t_game *game)
@@ -41,6 +41,7 @@ void map_correct(t_game *game)
 
 	y = 0;
 	x = 0;
+
 	size = ft_strlen(game->map[0]);
 	while (game->map[x] != 0)
 	{

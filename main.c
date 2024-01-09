@@ -6,7 +6,7 @@
 /*   By: mdogadin <mdogadin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 11:28:31 by mdogadin          #+#    #+#             */
-/*   Updated: 2023/12/21 14:32:46 by mdogadin         ###   ########.fr       */
+/*   Updated: 2024/01/09 14:09:36 by mdogadin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,19 @@ static void map_start(t_game *game)
 	game->end_game = 0;
 	game->move = 1;
 }
+
+void	start_game(t_game *game)
+{	
+	game->mlx = mlx_init();
+	game->win = mlx_new_window(game->mlx, game->col * 64,
+			game->row * 64, "So_long");
+	mlx_hook(game->win, 02, 1L, move_key, game);
+	mlx_hook(game->win, 17, 1L << 17, close_window, game);
+	texturs(game);
+	render_img(game);
+	mlx_loop(game->mlx);
+}
+
 int main(int argc , char **argv)
 {
 	t_game game;
@@ -61,15 +74,16 @@ int main(int argc , char **argv)
 	game.col = size_col(&game, fd_y);
 	fd = open(argv[1], O_RDONLY);
 	map(&game, fd);
+	write(1,"hello\n",6);
 	all_map_checks(&game, fd_map);
-	if (game.col = -1)
+	if (game.col == -1)
 		ft_exit("Error\n", &game);
 	close(fd_x);
 	close(fd_y);
 	close(fd);
 	close(fd_map);
 	player_position(&game);
-	
+	start_game(&game);
 	
 
 }

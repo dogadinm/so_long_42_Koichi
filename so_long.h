@@ -6,17 +6,30 @@
 /*   By: mdogadin <mdogadin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 11:16:04 by mdogadin          #+#    #+#             */
-/*   Updated: 2023/12/21 13:34:04 by mdogadin         ###   ########.fr       */
+/*   Updated: 2024/01/09 14:18:37 by mdogadin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-#include "./minilibx-linux/mlx_int.h"
-#include "./minilibx-linux/mlx.h"
+#include "./minilibx/mlx.h"
 #include "libft/libft.h"
+# include <fcntl.h>
 #include <stdbool.h>
+
+# define PLAYER "./images/Koich.xpm"
+# define COLLECTABLE "./images/strela.xpm"
+# define EXIT "./images/proverka_jopy.xpm"
+# define WALL "./images/stena.xpm"
+# define FLOOR "./images/pol.xpm"
+# define ON_EXIT "./images/Jopu_proveril.xpm"
+
+# define W 119
+# define A 97
+# define S 115
+# define D 100
+# define ESC 65307
 
 typedef struct s_img
 {
@@ -56,5 +69,16 @@ int	collectible_on_map(t_game *game);
 void ft_exit(char *s, t_game *game);
 void all_map_checks(t_game *game, int fd_map);
 void	free_map_arrangement(t_game *game);
+void player_position(t_game *game);
+int	render_img(t_game *game);
+int	close_window(t_game *game);
+int	move_key(int keycode, t_game *game);
+void texturs(t_game *game);
+void	free_img(t_game *game);
+void free_map(t_game *game);
+int	close_window(t_game *game);
+void	path_check(t_game *game , int fd_map);
+
+
 
 #endif

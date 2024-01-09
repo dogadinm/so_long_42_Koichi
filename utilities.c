@@ -6,7 +6,7 @@
 /*   By: mdogadin <mdogadin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 11:36:57 by mdogadin          #+#    #+#             */
-/*   Updated: 2023/12/21 13:33:57 by mdogadin         ###   ########.fr       */
+/*   Updated: 2024/01/09 12:18:59 by mdogadin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,20 @@ void ft_exit(char *s, t_game *game)
 
 void check_arg(t_game *game, int argc, char **argv)
 {
-    if (argc != 2)
-        ft_exit("Error\nInvalid number of argument\n", game);
+	if (argc != 2)
+		ft_exit("Error\nInvalid number of argument\n", game);
+	if (ft_strncmp(argv[1] + ft_strlen(argv[1]) - 4, ".ber", 4))
+	{
+		ft_printf("Error\nFile must be of type \".ber\"\n");
+		exit(0);
+	}
+}
+
+
+int	close_window(t_game *game)
+{
+	mlx_destroy_window(game->mlx, game->win);
+	free_img(game);
+	free_map(game);
+	exit (0);
 }

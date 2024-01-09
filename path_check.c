@@ -6,7 +6,7 @@
 /*   By: mdogadin <mdogadin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 11:41:19 by mdogadin          #+#    #+#             */
-/*   Updated: 2023/12/21 13:32:35 by mdogadin         ###   ########.fr       */
+/*   Updated: 2024/01/09 13:23:38 by mdogadin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@ void	map_malloc(t_game *game, int fd)
 {
 	int		i;
 	char	*c;
-	int		y;
+	int		x;
 
 	i = 0;
-	y = game->row + 1;
-	game->map_arrangement = (char **)malloc(sizeof(char *) * y);
+	x = game->row + 1;
+	game->map_arrangement = (char **)malloc(sizeof(char *) * x);
 	if (!game->map_arrangement)
 		free_img(game);
-	while (i < y)
+	while (i < x)
 	{
 		c = get_next_line(fd);
 		game->map_arrangement[i] = ft_strtrim(c, "\n");
@@ -79,5 +79,5 @@ void	path_check(t_game *game , int fd_map)
 		free_img(game);
 		close(fd_map);
 	}
-	free_map_floodfill(game);
+	free_map_arrangement(game);
 }
