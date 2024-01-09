@@ -6,14 +6,14 @@
 /*   By: mdogadin <mdogadin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 11:16:04 by mdogadin          #+#    #+#             */
-/*   Updated: 2024/01/09 14:18:37 by mdogadin         ###   ########.fr       */
+/*   Updated: 2024/01/09 14:38:11 by mdogadin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-#include "./minilibx/mlx.h"
+#include "./minilibx-linux/mlx.h"
 #include "libft/libft.h"
 # include <fcntl.h>
 #include <stdbool.h>

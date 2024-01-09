@@ -1,10 +1,10 @@
 NAME = so_long
 CC = cc
 FLAGS = -Wall -Werror -Wextra -g
-MLXFLAGS	=	-L ./minilibx -lmlx -Ilmlx -lXext -lX11
+MLXFLAGS	=	-L ./minilibx-linux -lmlx -Ilmlx -lXext -lX11
 LIBFT = ./libft/libft.a
 LIBFTDIR = ./libft
-MINILIBX_PATH	=	./minilibx
+MINILIBX_PATH	=	./minilibx-linux
 MINILIBX		=	$(MINILIBX_PATH)/libmlx.a
 SRC = main.c map_checks.c map_info.c map_size.c move.c path_check.c utilities.c
 
