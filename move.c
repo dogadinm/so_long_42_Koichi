@@ -50,16 +50,16 @@ static void	moving(t_game *game, int col, int row, int pressed_key)
 	valid = valid_move(game, col, row, pressed_key);
 	if (valid != -1)
 	{
-		game->player_y = row;
-		game->player_x = col;
+		game->player_y = col;
+		game->player_x = row;
 		if (game->temp != 'B')
 			game->map[row][col] = 'P';
 		else
 			game->map[row][col] = 'B';
-		if (game->map[tcol][trow] != 'B')
-			game->map[tcol][trow] = '0';
+		if (game->map[trow][tcol] != 'B')
+			game->map[trow][tcol] = '0';
 		else
-			game->map[tcol][trow] = 'E';
+			game->map[trow][tcol] = 'E';
 		ft_printf("Movements: %d\n", game->move++);
 		render_img(game);
 	}
@@ -69,8 +69,8 @@ int	move_key(int keycode, t_game *game)
 	int	col;
 	int	row;
 
-	col = game->player_x;
-	row = game->player_y;
+	col = game->player_y;
+	row = game->player_x;
 	if (keycode == A)
 		col--;
 	else if (keycode == W)
