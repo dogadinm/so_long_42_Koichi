@@ -27,9 +27,7 @@ static int	valid_move(t_game *game, int col, int row, int pressed_key)
 	}
 	if (game->map[row][col] == 'E' && game->score == 0)
 	{
-		game->end_game = 1;
-		ft_printf("\n\nYOU WIN 🥳🏆\n\n");
-		close_window(game);
+		return(2);
 	}
 	if (pressed_key != W && pressed_key != S && pressed_key != A
 		&& pressed_key != D)
@@ -63,7 +61,16 @@ static void	moving(t_game *game, int col, int row, int pressed_key)
 		ft_printf("Movements: %d\n", game->move++);
 		render_img(game);
 	}
+	if ((valid == 2))
+	{
+		game->map[row][col] = 'F';
+		render_img(game);
+		game->end_game = 1;
+		ft_printf("\n\nYOU WIN 🥳🏆\n\n");
+		close_window(game);
+	}
 }
+
 int	move_key(int keycode, t_game *game)
 {
 	int	col;

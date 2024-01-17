@@ -17,13 +17,15 @@
 #include "libft/libft.h"
 # include <fcntl.h>
 #include <stdbool.h>
+#include <time.h>
 
 # define PLAYER "./images/Koich.xpm"
 # define COLLECTABLE "./images/strela.xpm"
 # define EXIT "./images/proverka_jopy.xpm"
 # define WALL "./images/stena.xpm"
 # define FLOOR "./images/pol.xpm"
-# define ON_EXIT "./images/Jopu_proveril.xpm"
+# define FIN_EXIT "./images/Jopu_proveril.xpm"
+# define ON_EXIT "./images/Jopu_ne_proveril.xpm"
 
 # define W 119
 # define A 97
@@ -38,6 +40,7 @@ typedef struct s_img
 	void	*floor;
 	void	*wall;
 	void	*exit;
+	void	*fin_exit;
 	void	*on_exit;
 }	t_img;
 

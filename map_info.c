@@ -13,36 +13,47 @@
 #include "so_long.h"
 void texturs(t_game *game)
 {
-	int len;
+	int width;
+	int hight;
 
-	len = 64;
-	game->img.wall = mlx_xpm_file_to_image(game->mlx, WALL, &len, &len);
-	game->img.player = mlx_xpm_file_to_image(game->mlx, PLAYER , &len, &len);
-	game->img.floor = mlx_xpm_file_to_image(game->mlx, FLOOR, &len, &len);
-	game->img.exit = mlx_xpm_file_to_image(game->mlx, EXIT, &len, &len);
-	game->img.collectible = mlx_xpm_file_to_image(game->mlx, COLLECTABLE, &len, &len);
-	game->img.on_exit= mlx_xpm_file_to_image(game->mlx, ON_EXIT, &len, &len);
+	width = 128;
+	hight = 128;
+	game->img.wall = mlx_xpm_file_to_image(game->mlx, WALL, &width, &hight);
+	game->img.player = mlx_xpm_file_to_image(game->mlx, PLAYER , &width, &hight);
+	game->img.floor = mlx_xpm_file_to_image(game->mlx, FLOOR, &width, &hight);
+	game->img.exit = mlx_xpm_file_to_image(game->mlx, EXIT, &width, &hight);
+	game->img.collectible = mlx_xpm_file_to_image(game->mlx, COLLECTABLE, &width, &hight);
+	game->img.on_exit = mlx_xpm_file_to_image(game->mlx, ON_EXIT, &width, &hight);
+	game->img.fin_exit = mlx_xpm_file_to_image(game->mlx, FIN_EXIT, &width, &hight);
 }
 void	put_map(int x, int y, char c, t_game *game)
 {
+	int width;
+	int hight;
+
+	width = 128;
+	hight = 128;
 	if (c == '1')
 		mlx_put_image_to_window(game->mlx, game->win,
-			game->img.wall, x * 64, y * 64);
+			game->img.wall, x * width, y * hight);
 	if (c == '0')
 		mlx_put_image_to_window(game->mlx, game->win,
-			game->img.floor, x * 64, y * 64);
+			game->img.floor, x * width, y * hight);
 	if (c == 'P')
 		mlx_put_image_to_window(game->mlx, game->win,
-			game->img.player, x * 64, y * 64);
+			game->img.player, x * width, y * hight);
 	if (c == 'E')
 		mlx_put_image_to_window(game->mlx, game->win,
-			game->img.exit, x * 64, y * 64);
+			game->img.exit, x * width, y * hight);
 	if (c == 'C')
 		mlx_put_image_to_window(game->mlx, game->win,
-			game->img.collectible, x * 64, y * 64);
+			game->img.collectible, x * width, y * hight);
 	if (c == 'B')
 		mlx_put_image_to_window(game->mlx, game->win,
-			game->img.on_exit, x * 64, y * 64);
+			game->img.on_exit, x * width, y * hight);
+	if (c == 'F')
+		mlx_put_image_to_window(game->mlx, game->win,
+			game->img.fin_exit, x * width, y * hight);
 }
 
 int	render_img(t_game *game)
