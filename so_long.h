@@ -17,7 +17,7 @@
 #include "libft/libft.h"
 # include <fcntl.h>
 #include <stdbool.h>
-#include <time.h>
+#include <unistd.h>
 
 # define PLAYER "./images/Koich.xpm"
 # define COLLECTABLE "./images/strela.xpm"

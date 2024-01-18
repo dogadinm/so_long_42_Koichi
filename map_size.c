@@ -20,7 +20,7 @@ int	size_col(t_game *game, int fd_y)
 
 	(void)game;
 	c = get_next_line(fd_y);
-	y = ft_strlen(c)-1;
+	y = ft_strlen(c) - 1;
 	temp = y;
 	free(c);
 	if (fd_y < 0)
@@ -28,6 +28,8 @@ int	size_col(t_game *game, int fd_y)
 	while (1)
 	{
 		c = get_next_line(fd_y);
+		if (fd_y < 0)
+			ft_exit("Error\nThe fd is empty\n", game);
 		if (!c)
 			break ;
 		y = ft_strlen(c) - 1;
@@ -55,7 +57,7 @@ int size_row(t_game *game, int fd_x)
 	}
 	if (x == 0)
 	{	
-		ft_printf("Error\nThe file is empty or not exist.");
+		ft_printf("Error\nThe file is empty or not exist.\n");
 		exit(0);
 	}
 	return (x);
