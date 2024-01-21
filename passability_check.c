@@ -12,7 +12,7 @@
 
 #include "so_long.h"
 
-void	map_malloc(t_game *game, int fd)
+void	map_test_malloc(t_game *game, int fd)
 {
 	int		i;
 	char	*c;
@@ -20,64 +20,64 @@ void	map_malloc(t_game *game, int fd)
 
 	i = 0;
 	x = game->row + 1;
-	game->map_arrangement = (char **)malloc(sizeof(char *) * x);
-	if (!game->map_arrangement)
+	game->map_passability = (char **)malloc(sizeof(char *) * x);
+	if (!game->map_passability)
 		free_img(game);
 	while (i < x)
 	{
 		c = get_next_line(fd);
-		game->map_arrangement[i] = ft_strtrim(c, "\n");
+		game->map_passability[i] = ft_strtrim(c, "\n");
 		i++;
 		free(c);
 	}
 }
 
-bool	fill(t_game *game, char c, int x, int y)
+bool	test(t_game *game, int x, int y)
 {
 	static bool		exit = false;
 	static int		ys = 0;
 	
 	if (x < 0 || y < 0 || x >= game->row || y >= game->col)
 		return (false);
-	else if (game->map_arrangement[x][y] == 'X')
+	else if (game->map_passability[x][y] == 'X')
 		return (false);
-	else if (game->map_arrangement[x][y] == '1')
+	else if (game->map_passability[x][y] == '1')
 		return (false);
-	else if (game->map_arrangement[x][y] == 'E')
+	else if (game->map_passability[x][y] == 'E')
 		exit = true;
-	if (game->map_arrangement[x][y] == 'C')
+	if (game->map_passability[x][y] == 'C')
 		ys++;
-	game->map_arrangement[x][y] = 'X';
-	fill(game, c, x + 1, y);
-	fill(game, c, x, y + 1);
-	fill(game, c, x - 1, y);
-	fill(game, c, x, y - 1);
+	game->map_passability[x][y] = 'X';
+	test(game, x + 1, y);
+	test(game, x, y + 1);
+	test(game, x - 1, y);
+	test(game, x, y - 1);
 	return (ys == game->score && exit);
 }
 
 
-int	arrangement(t_game *game)
+int	passability(t_game *game)
 {
-    char	b;
+    // char	b;
     int	x;
 	int	y;
 	bool valid;
 
-	b = game->map_arrangement[game->player_x][game->player_y];
+	// b = game->map_passability[game->player_x][game->player_y];
 	x = game->player_x;
 	y = game->player_y;
-	valid = fill(game, b, x, y);
+	valid = test(game, x, y);
 	return (valid);
 }
 
-void	path_check(t_game *game , int fd_map)
+void	passability_check(t_game *game , int fd_map)
 {
-    map_malloc(game, fd_map);
-    if (!arrangement(game))
+    map_test_malloc(game, fd_map);
+    if (!passability(game))
 	{
-		ft_printf ("Error\nInvalid path to on the map\n");
-		free_img(game);
+		free_map_passability(game);
 		close(fd_map);
+		ft_exit("Error\nImpossibale to pass", game);
 	}
-	free_map_arrangement(game);
+	free_map_passability(game);
 }

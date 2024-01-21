@@ -50,7 +50,7 @@ typedef struct s_game
 	void	*mlx;
 	void	*win;
 	char	**map;
-	char	**map_arrangement;
+	char	**map_passability;
 	char	temp;
 	int		row;
 	int		col;
@@ -71,7 +71,7 @@ void check_arg(t_game *game, int argc, char **argv);
 int	collectible_on_map(t_game *game);
 void ft_exit(char *s, t_game *game);
 void all_map_checks(t_game *game, int fd_map);
-void	free_map_arrangement(t_game *game);
+void	free_map_passability(t_game *game);
 void player_position(t_game *game);
 int	render_img(t_game *game);
 int	close_window(t_game *game);
@@ -80,7 +80,7 @@ void texturs(t_game *game);
 void	free_img(t_game *game);
 void free_map(t_game *game);
 int	close_window(t_game *game);
-void	path_check(t_game *game , int fd_map);
+void	passability_check(t_game *game , int fd_map);
 
 
 

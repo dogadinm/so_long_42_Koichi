@@ -26,7 +26,7 @@ static void	ft_wall(t_game *game)
 			if (game->map[0][y] != '1' || game->map[game->row - 1][y] != '1')
 				ft_exit("Error\nThe map is not surrounded by walls", game);
 			if (game->map[x][0] != '1' || game->map[x][game->col - 1] != '1')
-				ft_exit("Error\nThe map is not surrounded by walls", game);
+				ft_exit("Error\nThe map is not surrounded by wallg", game);
 			y++;
 		}
 		x++;
@@ -47,7 +47,7 @@ void map_correct(t_game *game)
 	{
 		y = ft_strlen(game->map[x]);
 		if (y != size)
-			ft_exit("Error\nYour map is not rectangular", game);
+			ft_exit("Error\nMap is not rectangular", game);
 		x++;
 	}
 	ft_wall(game);
@@ -105,5 +105,5 @@ void all_map_checks(t_game *game, int fd_map)
 	ft_printf("Loading!\n");
 	map_check(game);
 	map_correct(game);
-	path_check(game, fd_map);
+	passability_check(game, fd_map);
 }

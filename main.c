@@ -81,6 +81,6 @@ int main(int argc , char **argv)
 	close(fd_y);
 	close(fd);
 	close(fd_map);
-	player_position(&game);
+	// player_position(&game);
 	start_game(&game);
 }

@@ -100,25 +100,25 @@ int	collectible_on_map(t_game *game)
 	return (c);
 	
 }
-void player_position(t_game *game)
-{
-	int x;
-	int	y;
+// void player_position(t_game *game)
+// {
+// 	int x;
+// 	int	y;
 
-	x = 0;
-	y = 0;
-	while (x < game->row)
-	{
-		while (y < game->col)
-		{
-			if (game->map[x][y] == 'P')
-			{
-				game->player_x = x;
-				game->player_y = y;
-			}
-			y++;
-		}
-		y = 0;
-		x++;
-	}
-}
+// 	x = 0;
+// 	y = 0;
+// 	while (x < game->row)
+// 	{
+// 		while (y < game->col)
+// 		{
+// 			if (game->map[x][y] == 'P')
+// 			{
+// 				game->player_x = x;
+// 				game->player_y = y;
+// 			}
+// 			y++;
+// 		}
+// 		y = 0;
+// 		x++;
+// 	}
+// }

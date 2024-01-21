@@ -25,23 +25,25 @@ void	free_img(t_game *game)
 		mlx_destroy_image(game->mlx, game->img.wall);
 	if (game->img.on_exit)
 		mlx_destroy_image(game->mlx, game->img.on_exit);
+	if (game->img.fin_exit)
+		mlx_destroy_image(game->mlx, game->img.fin_exit);
 	mlx_destroy_display(game->mlx);
 	free_map(game);
 	free(game->mlx);
 	exit(0);
 }
 
-void	free_map_arrangement(t_game *game)
+void	free_map_passability(t_game *game)
 {
 	int	i;
 
 	i = 0;
-	while (game->map_arrangement[i])
+	while (game->map_passability[i])
 	{
-		free(game->map_arrangement[i]);
+		free(game->map_passability[i]);
 		i++;
 	}
-	free(game->map_arrangement);
+	free(game->map_passability);
 }
 
 void free_map(t_game *game)
@@ -58,7 +60,7 @@ void free_map(t_game *game)
 
 void ft_exit(char *s, t_game *game)
 {
-    ft_printf("Error\nSomething is wrong!\n%s\n", s);
+    ft_printf("%s\n", s);
     if (game->map[0])
 		free_map(game);
 	exit(0);
@@ -80,6 +82,6 @@ int	close_window(t_game *game)
 {
 	mlx_destroy_window(game->mlx, game->win);
 	free_img(game);
-	free_map(game);
+	// free_map(game);
 	exit (0);
 }

@@ -6,7 +6,7 @@ LIBFT = ./libft/libft.a
 LIBFTDIR = ./libft
 MINILIBX_PATH	=	./minilibx-linux
 MINILIBX		=	$(MINILIBX_PATH)/libmlx.a
-SRC = main.c map_checks.c map_info.c map_size.c move.c path_check.c utilities.c
+SRC = main.c map_checks.c map_info.c map_size.c move.c passability_check.c utilities.c
 
 OBJ = $(SRC:%.c=%.o)
 
