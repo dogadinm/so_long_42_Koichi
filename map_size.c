@@ -16,15 +16,15 @@ int	size_col(t_game *game, int fd_y)
 {
 	char	*c;
 	int		y;
-	int		temp;
+	// int		temp;
 
 	(void)game;
-	c = get_next_line(fd_y);
-	y = ft_strlen(c) - 1;
-	temp = y;
-	free(c);
-	if (fd_y < 0)
-		ft_exit("Error\nThe fd is empty\n", game);
+	// c = get_next_line(fd_y);
+	// y = ft_strlen(c) - 1;
+	// temp = y;
+	// free(c);
+	// if (fd_y < 0)
+	// 	ft_exit("Error\nThe fd is empty\n", game);
 	while (1)
 	{
 		c = get_next_line(fd_y);
@@ -33,8 +33,8 @@ int	size_col(t_game *game, int fd_y)
 		if (!c)
 			break ;
 		y = ft_strlen(c) - 1;
-		if (temp != y)
-			return (-1);
+		// if (temp != y)
+		// 	return (-1);
 		free(c);
 	}
 	return (y);

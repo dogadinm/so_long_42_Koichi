@@ -16,8 +16,8 @@ void texturs(t_game *game)
 	int width;
 	int hight;
 
-	width = 128;
-	hight = 128;
+	width = 100;
+	hight = 100;
 	game->img.wall = mlx_xpm_file_to_image(game->mlx, WALL, &width, &hight);
 	game->img.player = mlx_xpm_file_to_image(game->mlx, PLAYER , &width, &hight);
 	game->img.floor = mlx_xpm_file_to_image(game->mlx, FLOOR, &width, &hight);
@@ -31,8 +31,8 @@ void	put_map(int x, int y, char c, t_game *game)
 	int width;
 	int hight;
 
-	width = 128;
-	hight = 128;
+	width = WIDTH;
+	hight = HIGHT;
 	if (c == '1')
 		mlx_put_image_to_window(game->mlx, game->win,
 			game->img.wall, x * width, y * hight);
@@ -48,7 +48,7 @@ void	put_map(int x, int y, char c, t_game *game)
 	if (c == 'C')
 		mlx_put_image_to_window(game->mlx, game->win,
 			game->img.collectible, x * width, y * hight);
-	if (c == 'B')
+	if (c == 'O')
 		mlx_put_image_to_window(game->mlx, game->win,
 			game->img.on_exit, x * width, y * hight);
 	if (c == 'F')

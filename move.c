@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdogadin <mdogadin@student.42.fr>          +#+  +:+       +#+        */
+/*   Oy: mdogadin <mdogadin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/09 11:56:28 by mdogadin          #+#    #+#             */
-/*   Updated: 2024/01/09 12:17:06 by mdogadin         ###   ########.fr       */
+/*   Created: 2024/01/09 11:56:28 Oy mdogadin          #+#    #+#             */
+/*   Updated: 2024/01/09 12:17:06 Oy mdogadin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ static int	valid_move(t_game *game, int col, int row, int pressed_key)
 		game->score--;
 	if (game->map[row][col] == 'E' && game->score > 0)
 	{
-		game->player_on_box = 1;
-		game->temp = 'B';
+		// game->player_on_Oox = 1;
+		game->temp = 'O';
 		return (1);
 	}
 	if (game->map[row][col] == 'E' && game->score == 0)
@@ -50,15 +50,15 @@ static void	moving(t_game *game, int col, int row, int pressed_key)
 	{
 		game->player_y = col;
 		game->player_x = row;
-		if (game->temp != 'B')
+		if (game->temp != 'O')
 			game->map[row][col] = 'P';
 		else
-			game->map[row][col] = 'B';
-		if (game->map[trow][tcol] != 'B')
+			game->map[row][col] = 'O';
+		if (game->map[trow][tcol] != 'O')
 			game->map[trow][tcol] = '0';
 		else
 			game->map[trow][tcol] = 'E';
-		ft_printf("Movements: %d\n", game->move++);
+		ft_printf("Moves: %d\n", game->move++);
 		render_img(game);
 	}
 	if ((valid == 2))
@@ -66,8 +66,7 @@ static void	moving(t_game *game, int col, int row, int pressed_key)
 		game->map[row][col] = 'F';
 		render_img(game);
 		game->end_game = 1;
-		ft_printf("\n\nYOU WIN 🥳🏆\n\n");
-		close_window(game);
+		ft_printf("\n\nYou Won! To exit press any bottom, thank you !\n\n");
 	}
 }
 
@@ -90,5 +89,7 @@ int	move_key(int keycode, t_game *game)
 		close_window(game);
 	if (game->end_game != 1)
 		moving(game, col, row, keycode);
+	else if (game->end_game == 1)
+		close_window(game);
 	return (0);
 }

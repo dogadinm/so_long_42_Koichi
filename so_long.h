@@ -33,6 +33,9 @@
 # define D 100
 # define ESC 65307
 
+# define WIDTH 128
+# define HIGHT 128
+
 typedef struct s_img
 {
 	void	*collectible;
@@ -57,7 +60,7 @@ typedef struct s_game
 	int		exit;
 	int		score;
 	int		player;
-	int		player_on_box;
+	// int		player_on_box;
 	int		player_y;
 	int		player_x;
 	int		end_game;

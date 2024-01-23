@@ -35,7 +35,7 @@ static void map_start(t_game *game)
 {
 	game->player_x = 0;
 	game->player_y = 0;
-	game->player_on_box = 0;
+	// game->player_on_box = 0;
 	game->exit = 0;
 	game->player = 0;
 	game->row = 0;
@@ -47,8 +47,8 @@ static void map_start(t_game *game)
 void	start_game(t_game *game)
 {	
 	game->mlx = mlx_init();
-	game->win = mlx_new_window(game->mlx, game->col * 128,
-			game->row * 128, "So_long");
+	game->win = mlx_new_window(game->mlx, game->col * WIDTH,
+			game->row * HIGHT, "So_long");
 	texturs(game);
 	render_img(game);		
 	mlx_key_hook(game->win, move_key, game);
@@ -75,8 +75,8 @@ int main(int argc , char **argv)
 	fd = open(argv[1], O_RDONLY);
 	map(&game, fd);
 	all_map_checks(&game, fd_map);
-	if (game.col == -1)
-		ft_exit("Error\n", &game);
+	// if (game.col == -1)
+	// 	ft_exit("Error\n", &game);
 	close(fd_x);
 	close(fd_y);
 	close(fd);
