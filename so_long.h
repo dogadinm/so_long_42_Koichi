@@ -19,13 +19,13 @@
 #include <stdbool.h>
 #include <unistd.h>
 
-# define PLAYER "./images/Koich.xpm"
-# define COLLECTABLE "./images/strela.xpm"
-# define EXIT "./images/proverka_jopy.xpm"
-# define WALL "./images/stena.xpm"
-# define FLOOR "./images/pol.xpm"
-# define FIN_EXIT "./images/Jopu_proveril.xpm"
-# define ON_EXIT "./images/Jopu_ne_proveril.xpm"
+# define PLAYER "./textures/Koich.xpm"
+# define COLLECTABLE "./textures/strela.xpm"
+# define EXIT "./textures/proverka_jopy.xpm"
+# define WALL "./textures/stena.xpm"
+# define FLOOR "./textures/pol.xpm"
+# define FIN_EXIT "./textures/Jopu_proveril.xpm"
+# define ON_EXIT "./textures/Jopu_ne_proveril.xpm"
 
 # define W 119
 # define A 97
