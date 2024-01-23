@@ -82,6 +82,5 @@ int	close_window(t_game *game)
 {
 	mlx_destroy_window(game->mlx, game->win);
 	free_img(game);
-	// free_map(game);
 	exit (0);
 }

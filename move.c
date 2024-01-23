@@ -21,7 +21,6 @@ static int	valid_move(t_game *game, int col, int row, int pressed_key)
 		game->score--;
 	if (game->map[row][col] == 'E' && game->score > 0)
 	{
-		// game->player_on_Oox = 1;
 		game->temp = 'O';
 		return (1);
 	}
@@ -66,7 +65,7 @@ static void	moving(t_game *game, int col, int row, int pressed_key)
 		game->map[row][col] = 'F';
 		render_img(game);
 		game->end_game = 1;
-		ft_printf("\n\nYou Won! To exit press any bottom, thank you !\n\n");
+		ft_printf("\n\nYou Won! To exit press any bottom on kyeboard, thank you !\n\n");
 	}
 }
 

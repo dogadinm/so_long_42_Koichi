@@ -60,7 +60,6 @@ typedef struct s_game
 	int		exit;
 	int		score;
 	int		player;
-	// int		player_on_box;
 	int		player_y;
 	int		player_x;
 	int		end_game;
@@ -68,8 +67,8 @@ typedef struct s_game
 }	t_game;
 
 
-int size_row(t_game *game, int fd_x);
-int	size_col(t_game *game, int fd_y);
+int size_row(int fd_x);
+int	size_col(int fd_y);
 void check_arg(t_game *game, int argc, char **argv);
 int	collectible_on_map(t_game *game);
 void ft_exit(char *s, t_game *game);

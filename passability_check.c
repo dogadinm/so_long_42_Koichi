@@ -58,12 +58,10 @@ bool	test(t_game *game, int x, int y)
 
 int	passability(t_game *game)
 {
-    // char	b;
     int	x;
 	int	y;
 	bool valid;
 
-	// b = game->map_passability[game->player_x][game->player_y];
 	x = game->player_x;
 	y = game->player_y;
 	valid = test(game, x, y);

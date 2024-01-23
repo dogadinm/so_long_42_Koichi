@@ -35,7 +35,6 @@ static void map_start(t_game *game)
 {
 	game->player_x = 0;
 	game->player_y = 0;
-	// game->player_on_box = 0;
 	game->exit = 0;
 	game->player = 0;
 	game->row = 0;
@@ -53,6 +52,7 @@ void	start_game(t_game *game)
 	render_img(game);		
 	mlx_key_hook(game->win, move_key, game);
 	mlx_hook(game->win, 17, 0, close_window, game);
+	mlx_expose_hook(game->win, render_img, game);
 	mlx_loop(game->mlx);
 }
 
@@ -70,17 +70,14 @@ int main(int argc , char **argv)
 	check_arg(&game, argc, argv);
 	map_start(&game);
 	game.score = collectible_on_map(&game);
-	game.row = size_row(&game, fd_x);
-	game.col = size_col(&game, fd_y);
+	game.row = size_row(fd_x);
+	game.col = size_col(fd_y);
 	fd = open(argv[1], O_RDONLY);
 	map(&game, fd);
 	all_map_checks(&game, fd_map);
-	// if (game.col == -1)
-	// 	ft_exit("Error\n", &game);
 	close(fd_x);
 	close(fd_y);
 	close(fd);
 	close(fd_map);
-	// player_position(&game);
 	start_game(&game);
 }

@@ -92,7 +92,7 @@ void	map_check(t_game *game)
 	else if (game->exit == 0)
 		ft_exit("Error\nThere is no exit", game);
 	else if (game->exit > 1)
-		ft_exit("Error\nThere must be at least one exit", game);
+		ft_exit("Error\nThere must be only one exit", game);
 	else if (game->player == 0)
 		ft_exit("Error\nThere is no player", game);
 	else if (game->player > 1)
