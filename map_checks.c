@@ -6,7 +6,7 @@
 /*   By: mdogadin <mdogadin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 10:29:15 by mdogadin          #+#    #+#             */
-/*   Updated: 2024/01/09 14:24:18 by mdogadin         ###   ########.fr       */
+/*   Updated: 2024/01/24 11:28:10 by mdogadin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static void	ft_wall(t_game *game)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	x = 0;
 	while (game->map[x])
@@ -33,15 +33,14 @@ static void	ft_wall(t_game *game)
 	}
 }
 
-void map_correct(t_game *game)
+void	map_correct(t_game *game)
 {
-	int y;
-	int x;
-	int size;
+	int	y;
+	int	x;
+	int	size;
 
 	y = 0;
 	x = 0;
-
 	size = ft_strlen(game->map[0]);
 	while (game->map[x] != 0)
 	{
@@ -97,10 +96,9 @@ void	map_check(t_game *game)
 		ft_exit("Error\nThere is no player", game);
 	else if (game->player > 1)
 		ft_exit("Error\nOnly one player on map ", game);
-
 }
 
-void all_map_checks(t_game *game, int fd_map)
+void	all_map_checks(t_game *game, int fd_map)
 {
 	ft_printf("Loading!\n");
 	map_check(game);

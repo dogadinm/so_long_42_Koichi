@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   Oy: mdogadin <mdogadin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdogadin <mdogadin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/09 11:56:28 Oy mdogadin          #+#    #+#             */
-/*   Updated: 2024/01/09 12:17:06 Oy mdogadin         ###   ########.fr       */
+/*   Created: 2024/01/09 11:56:28 by mdogadin          #+#    #+#             */
+/*   Updated: 2024/01/24 12:02:43 by mdogadin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,21 @@ static int	valid_move(t_game *game, int col, int row, int pressed_key)
 	}
 	if (game->map[row][col] == 'E' && game->score == 0)
 	{
-		return(2);
+		return (2);
 	}
 	if (pressed_key != W && pressed_key != S && pressed_key != A
 		&& pressed_key != D)
 		return (-1);
 	else
 		return (1);
+}
+
+void	end_game(t_game *game, int col, int row)
+{
+	game->map[row][col] = 'F';
+	render_img(game);
+	game->end_game = 1;
+	ft_printf("\nYou Won! To exit press any bottom on kyeboard !\n");
 }
 
 static void	moving(t_game *game, int col, int row, int pressed_key)
@@ -60,13 +68,8 @@ static void	moving(t_game *game, int col, int row, int pressed_key)
 		ft_printf("Moves: %d\n", game->move++);
 		render_img(game);
 	}
-	if ((valid == 2))
-	{
-		game->map[row][col] = 'F';
-		render_img(game);
-		game->end_game = 1;
-		ft_printf("\n\nYou Won! To exit press any bottom on kyeboard, thank you !\n\n");
-	}
+	if (valid == 2)
+		end_game(game, col, row);
 }
 
 int	move_key(int keycode, t_game *game)

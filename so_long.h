@@ -6,18 +6,18 @@
 /*   By: mdogadin <mdogadin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 11:16:04 by mdogadin          #+#    #+#             */
-/*   Updated: 2024/01/09 14:38:11 by mdogadin         ###   ########.fr       */
+/*   Updated: 2024/01/24 11:47:10 by mdogadin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-#include "./minilibx-linux/mlx.h"
-#include "libft/libft.h"
+# include "./minilibx-linux/mlx.h"
+# include "libft/libft.h"
 # include <fcntl.h>
-#include <stdbool.h>
-#include <unistd.h>
+# include <stdbool.h>
+# include <unistd.h>
 
 # define PLAYER "./textures/Koich.xpm"
 # define COLLECTABLE "./textures/strela.xpm"
@@ -49,7 +49,7 @@ typedef struct s_img
 
 typedef struct s_game
 {
-	t_img img;
+	t_img	img;
 	void	*mlx;
 	void	*win;
 	char	**map;
@@ -66,24 +66,20 @@ typedef struct s_game
 	int		move;
 }	t_game;
 
-
-int size_row(int fd_x);
-int	size_col(int fd_y);
-void check_arg(t_game *game, int argc, char **argv);
-int	collectible_on_map(t_game *game);
-void ft_exit(char *s, t_game *game);
-void all_map_checks(t_game *game, int fd_map);
+void	texturs(t_game *game);
+void	check_arg(t_game *game, int argc, char **argv);
+void	ft_exit(char *s, t_game *game);
+void	all_map_checks(t_game *game, int fd_map);
 void	free_map_passability(t_game *game);
-void player_position(t_game *game);
-int	render_img(t_game *game);
-int	close_window(t_game *game);
-int	move_key(int keycode, t_game *game);
-void texturs(t_game *game);
 void	free_img(t_game *game);
-void free_map(t_game *game);
-int	close_window(t_game *game);
-void	passability_check(t_game *game , int fd_map);
-
-
+void	free_map(t_game *game);
+void	passability_check(t_game *game, int fd_map);
+int		size_row(int fd_x);
+int		size_col(int fd_y);
+int		collectible_on_map(t_game *game);
+int		render_img(t_game *game);
+int		close_window(t_game *game);
+int		move_key(int keycode, t_game *game);
+int		close_window(t_game *game);
 
 #endif

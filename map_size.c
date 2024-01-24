@@ -6,13 +6,13 @@
 /*   By: mdogadin <mdogadin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 12:13:18 by mdogadin          #+#    #+#             */
-/*   Updated: 2024/01/09 13:02:19 by mdogadin         ###   ########.fr       */
+/*   Updated: 2024/01/24 11:40:47 by mdogadin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	size_col (int fd_y)
+int	size_col(int fd_y)
 {
 	char	*c;
 	int		y;
@@ -30,7 +30,7 @@ int	size_col (int fd_y)
 	return (y);
 }
 
-int size_row(int fd_x)
+int	size_row(int fd_x)
 {
 	char	*c;
 	int		x;
@@ -45,7 +45,7 @@ int size_row(int fd_x)
 		free(c);
 	}
 	if (x == 0)
-	{	
+	{
 		ft_printf("Error\nThe file is empty or not exist.\n");
 		exit(0);
 	}

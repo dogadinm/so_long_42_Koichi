@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   path_check.c                                       :+:      :+:    :+:   */
+/*   passability_check.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdogadin <mdogadin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 11:41:19 by mdogadin          #+#    #+#             */
-/*   Updated: 2024/01/09 13:23:38 by mdogadin         ###   ########.fr       */
+/*   Updated: 2024/01/24 11:31:39 by mdogadin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ bool	test(t_game *game, int x, int y)
 {
 	static bool		exit = false;
 	static int		ys = 0;
-	
+
 	if (x < 0 || y < 0 || x >= game->row || y >= game->col)
 		return (false);
 	else if (game->map_passability[x][y] == 'X')
@@ -55,12 +55,11 @@ bool	test(t_game *game, int x, int y)
 	return (ys == game->score && exit);
 }
 
-
 int	passability(t_game *game)
 {
-    int	x;
-	int	y;
-	bool valid;
+	int		x;
+	int		y;
+	bool	valid;
 
 	x = game->player_x;
 	y = game->player_y;
@@ -68,10 +67,10 @@ int	passability(t_game *game)
 	return (valid);
 }
 
-void	passability_check(t_game *game , int fd_map)
+void	passability_check(t_game *game, int fd_map)
 {
-    map_test_malloc(game, fd_map);
-    if (!passability(game))
+	map_test_malloc(game, fd_map);
+	if (!passability(game))
 	{
 		free_map_passability(game);
 		close(fd_map);

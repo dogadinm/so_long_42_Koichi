@@ -6,33 +6,40 @@
 /*   By: mdogadin <mdogadin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 10:15:21 by mdogadin          #+#    #+#             */
-/*   Updated: 2024/01/09 14:35:57 by mdogadin         ###   ########.fr       */
+/*   Updated: 2024/01/24 12:08:34 by mdogadin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-void texturs(t_game *game)
+
+void	texturs(t_game *game)
 {
-	int width;
-	int hight;
+	int	width;
+	int	hight;
 
 	width = 100;
 	hight = 100;
-	game->img.wall = mlx_xpm_file_to_image(game->mlx, WALL, &width, &hight);
-	game->img.player = mlx_xpm_file_to_image(game->mlx, PLAYER , &width, &hight);
-	game->img.floor = mlx_xpm_file_to_image(game->mlx, FLOOR, &width, &hight);
-	game->img.exit = mlx_xpm_file_to_image(game->mlx, EXIT, &width, &hight);
-	game->img.collectible = mlx_xpm_file_to_image(game->mlx, COLLECTABLE, &width, &hight);
-	game->img.on_exit = mlx_xpm_file_to_image(game->mlx, ON_EXIT, &width, &hight);
-	game->img.fin_exit = mlx_xpm_file_to_image(game->mlx, FIN_EXIT, &width, &hight);
+	game->img.wall = mlx_xpm_file_to_image(game->mlx,
+			WALL, &width, &hight);
+	game->img.player = mlx_xpm_file_to_image(game->mlx,
+			PLAYER, &width, &hight);
+	game->img.floor = mlx_xpm_file_to_image(game->mlx,
+			FLOOR, &width, &hight);
+	game->img.exit = mlx_xpm_file_to_image(game->mlx,
+			EXIT, &width, &hight);
+	game->img.collectible = mlx_xpm_file_to_image(game->mlx,
+			COLLECTABLE, &width, &hight);
+	game->img.on_exit = mlx_xpm_file_to_image(game->mlx,
+			ON_EXIT, &width, &hight);
+	game->img.fin_exit = mlx_xpm_file_to_image(game->mlx,
+			FIN_EXIT, &width, &hight);
 }
+
 void	put_map(int x, int y, char c, t_game *game)
 {
-	int width;
-	int hight;
+	static int	width = WIDTH;
+	static int	hight = HIGHT;
 
-	width = WIDTH;
-	hight = HIGHT;
 	if (c == '1')
 		mlx_put_image_to_window(game->mlx, game->win,
 			game->img.wall, x * width, y * hight);
@@ -98,5 +105,4 @@ int	collectible_on_map(t_game *game)
 		x++;
 	}
 	return (c);
-	
 }

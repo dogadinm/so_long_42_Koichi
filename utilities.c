@@ -6,7 +6,7 @@
 /*   By: mdogadin <mdogadin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 11:36:57 by mdogadin          #+#    #+#             */
-/*   Updated: 2024/01/09 12:18:59 by mdogadin         ###   ########.fr       */
+/*   Updated: 2024/01/24 11:30:31 by mdogadin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,37 +46,26 @@ void	free_map_passability(t_game *game)
 	free(game->map_passability);
 }
 
-void free_map(t_game *game)
+void	free_map(t_game *game)
 {
-    int i;
-    i = 0;
-    while (game->map[i])
-    {
-        free(game->map[i]);
-        i++;
-    }
-    free(game->map);
+	int	i;
+
+	i = 0;
+	while (game->map[i])
+	{
+		free(game->map[i]);
+		i++;
+	}
+	free(game->map);
 }
 
-void ft_exit(char *s, t_game *game)
+void	ft_exit(char *s, t_game *game)
 {
-    ft_printf("%s\n", s);
-    if (game->map[0])
+	ft_printf("%s\n", s);
+	if (game->map[0])
 		free_map(game);
 	exit(0);
 }
-
-void check_arg(t_game *game, int argc, char **argv)
-{
-	if (argc != 2)
-		ft_exit("Error\nInvalid number of argument\n", game);
-	if (ft_strncmp(argv[1] + ft_strlen(argv[1]) - 4, ".ber", 4))
-	{
-		ft_printf("Error\nFile must be of type \".ber\"\n");
-		exit(0);
-	}
-}
-
 
 int	close_window(t_game *game)
 {
